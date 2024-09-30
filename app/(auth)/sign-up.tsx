@@ -7,18 +7,20 @@ import {
   Heading,
   Input,
   InputField,
+  KeyboardAvoidingView,
   Text,
   View,
 } from "@gluestack-ui/themed";
 import { useSignUp } from "@clerk/clerk-expo";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert } from "react-native";
+import { Alert, Platform } from "react-native";
 
 export default function SignInScreen() {
   const router = useRouter();
   const { isLoaded, signUp, setActive } = useSignUp();
   const [emailAddress, setEmailAddress] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [pendingVerification, setPendingVerification] = useState(false);
   const [code, setCode] = useState("");
@@ -31,6 +33,7 @@ export default function SignInScreen() {
     try {
       await signUp.create({
         emailAddress,
+        username,
         password,
       });
 
@@ -40,7 +43,7 @@ export default function SignInScreen() {
     } catch (err: any) {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
-      // console.error(JSON.stringify(err, null, 2));
+      console.error(JSON.stringify(err, null, 2));
       const errorMessage = err.errors;
       if (errorMessage[0].code === "form_param_format_invalid") {
         console.log(errorMessage[0].longMessage);
@@ -65,7 +68,7 @@ export default function SignInScreen() {
 
       if (completeSignUp.status === "complete") {
         await setActive({ session: completeSignUp.createdSessionId });
-        router.replace("/");
+        router.replace("/(home)");
       } else {
         console.error(JSON.stringify(completeSignUp, null, 2));
       }
@@ -73,22 +76,18 @@ export default function SignInScreen() {
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       console.error(JSON.stringify(err, null, 2));
+      if (err.errors[0].code === "form_code_incorrect") {
+        Alert.alert("Error", err.errors[0].longMessage);
+      }
     }
-    // err = err.errors[0];
-    // // if err. message.includes("email_adress") {}
-    // //   console.log("ups")
-    // }
-    // <Alert mx="$2.5" action="error" variant="accent">
-    //   <AlertText>
-    //     {}
-    //   </AlertText>
-    // </Alert>;
   };
 
   return (
-    <View h="100%" maxWidth="100%">
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "height" : "height"}
+    >
       {!pendingVerification && (
-        <>
+        <View h="100%" maxWidth="100%">
           <Center flex={1}>
             <Heading size="2xl" marginVertical="$10">
               Crea una cuenta
@@ -103,6 +102,13 @@ export default function SignInScreen() {
                   value={emailAddress}
                   onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
                   placeholder="Ingresa tu cuenta"
+                />
+              </Input>
+              <Input variant="outline" size="md">
+                <InputField
+                  value={username}
+                  onChangeText={(userName) => setUserName(userName)}
+                  placeholder="Ingresa tu nombre"
                 />
               </Input>
             </Box>
@@ -131,7 +137,7 @@ export default function SignInScreen() {
                   onSignUpPress();
                 }}
               >
-                <ButtonText>Continuar</ButtonText>
+                <ButtonText>Registrarse</ButtonText>
               </Button>
               <Button
                 variant="link"
@@ -144,7 +150,7 @@ export default function SignInScreen() {
               </Button>
             </Box>
           </Center>
-        </>
+        </View>
       )}
       {pendingVerification && (
         <>
@@ -158,8 +164,11 @@ export default function SignInScreen() {
           <Button onPress={onPressVerify}>
             <ButtonText>Verificar email</ButtonText>
           </Button>
+          <Button onPress={() => router.push("/sign-up")}>
+            <ButtonText>atras</ButtonText>
+          </Button>
         </>
       )}
-    </View>
+    </KeyboardAvoidingView>
   );
 }
