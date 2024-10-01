@@ -1,7 +1,7 @@
 import * as SecureStore from "expo-secure-store";
 import { Stack } from "expo-router";
 import { GluestackUIProvider } from "@gluestack-ui/themed";
-import { config } from "@gluestack-ui/config";
+import { config } from "./../config";
 import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import { Slot } from "expo-router";
 

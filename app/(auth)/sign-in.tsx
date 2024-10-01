@@ -3,8 +3,10 @@ import {
   Button,
   ButtonText,
   Center,
+  Divider,
   FormControl,
   Heading,
+  HStack,
   Input,
   InputField,
   set,
@@ -51,20 +53,22 @@ export default function SignInScreen() {
         <Heading size="2xl" marginVertical="$10">
           ¡Hola de nuevo!
         </Heading>
-        <Box w="$72" gap="$2">
+        <Box flex={1} maxHeight="60%" gap="$2" maxWidth="80%" marginTop="$2.5">
           <Button size="md">
             <ButtonText>Google</ButtonText>
           </Button>
-          <Text>o</Text>
+          <HStack justifyContent="center" alignItems="center" space="md">
+            <Divider my="$0.5" />
+            <Text>o</Text>
+            <Divider my="$0.5" />
+          </HStack>
           <Input variant="outline" size="md">
             <InputField
               value={emailAddress}
               onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
-              placeholder="Ingresa tu cuenta"
+              placeholder="Ingresa tu cuenta o nombre de usuario"
             />
           </Input>
-        </Box>
-        <Box w="$72" marginVertical="$2">
           <FormControl
             size="md"
             isDisabled={false}
@@ -81,24 +85,29 @@ export default function SignInScreen() {
                 onChangeText={(password) => setPassword(password)}
               />
             </Input>
+            <Button
+              variant="link"
+              size="sm"
+              alignSelf="flex-end"
+              marginTop="-$1"
+            >
+              <ButtonText>¿Olvidaste tu contraseña?</ButtonText>
+            </Button>
           </FormControl>
-          <Button variant="link" size="sm">
-            <ButtonText>¿Olvidaste tu contraseña?</ButtonText>
-          </Button>
-        </Box>
-        <Box marginTop="$10">
-          <Button>
-            <ButtonText onPress={onSignInPress}>Iniciar</ButtonText>
-          </Button>
-          <Button
-            variant="link"
-            size="sm"
-            onPress={() => {
-              router.push("/sign-up");
-            }}
-          >
-            <ButtonText>¿No tienes una cuenta? Registrate</ButtonText>
-          </Button>
+          <Box marginTop="$10">
+            <Button onPress={onSignInPress}>
+              <ButtonText>Iniciar</ButtonText>
+            </Button>
+            <Button
+              variant="link"
+              size="sm"
+              onPress={() => {
+                router.push("/sign-up");
+              }}
+            >
+              <ButtonText>¿No tienes una cuenta? Registrate</ButtonText>
+            </Button>
+          </Box>
         </Box>
       </Center>
     </View>
