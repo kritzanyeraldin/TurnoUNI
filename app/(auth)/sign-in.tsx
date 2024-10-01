@@ -57,10 +57,15 @@ export default function SignInScreen() {
           <Button size="md">
             <ButtonText>Google</ButtonText>
           </Button>
-          <HStack justifyContent="center" alignItems="center" space="md">
-            <Divider my="$0.5" />
+          <HStack
+            justifyContent="center"
+            alignItems="center"
+            space="md"
+            // bg="$secondary800"
+          >
+            <Divider my="$0.5" bgColor="$secondary900" />
             <Text>o</Text>
-            <Divider my="$0.5" />
+            <Divider my="$0.5" bgColor="$secondary900" />
           </HStack>
           <Input variant="outline" size="md">
             <InputField
@@ -90,6 +95,9 @@ export default function SignInScreen() {
               size="sm"
               alignSelf="flex-end"
               marginTop="-$1"
+              onPress={() => {
+                router.push("/forgot-password");
+              }}
             >
               <ButtonText>¿Olvidaste tu contraseña?</ButtonText>
             </Button>

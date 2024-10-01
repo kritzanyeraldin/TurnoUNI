@@ -11,7 +11,14 @@ export default function AuthRoutesLayout() {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Slot />
+      <Stack>
+        <Stack.Screen
+          name="sign-in"
+          options={{ title: "Sign In", headerShown: false }}
+        />
+        <Stack.Screen name="sign-up" options={{ title: "Regresar" }} />
+        <Stack.Screen name="forgot-password" options={{ title: "Regresar" }} />
+      </Stack>
     </SafeAreaView>
   );
 }

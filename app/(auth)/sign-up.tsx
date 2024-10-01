@@ -16,7 +16,7 @@ import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Alert, Platform } from "react-native";
 
-export default function SignInScreen() {
+export default function SignUpScreen() {
   const router = useRouter();
   const { isLoaded, signUp, setActive } = useSignUp();
   const [emailAddress, setEmailAddress] = useState("");
