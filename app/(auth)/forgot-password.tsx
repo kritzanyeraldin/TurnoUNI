@@ -1,6 +1,7 @@
 import {
   Button,
   ButtonText,
+  Center,
   Heading,
   KeyboardAvoidingView,
 } from "@gluestack-ui/themed";
@@ -15,13 +16,15 @@ const restorePasswordScreen = () => {
       // bg="red"
       behavior={Platform.OS === "ios" ? "height" : "height"}
     >
-      <Heading size="lg">Crea una nueva contraseña</Heading>
-      <Input>
-        <InputField placeholder="ingresa" />
-      </Input>
-      <Button>
-        <ButtonText>enviar</ButtonText>
-      </Button>
+      <Center>
+        <Heading size="lg">Crea una nueva contraseña</Heading>
+        <Input>
+          <InputField placeholder="ingresa" />
+        </Input>
+        <Button>
+          <ButtonText>enviar</ButtonText>
+        </Button>
+      </Center>
     </KeyboardAvoidingView>
   );
 };
