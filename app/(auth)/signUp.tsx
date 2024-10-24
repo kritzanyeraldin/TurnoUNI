@@ -156,7 +156,7 @@ export default function SignUpScreen() {
               variant="link"
               size="sm"
               onPress={() => {
-                router.push("/sign-in");
+                router.push("/signIn");
               }}
             >
               <ButtonText>¿Ya tienes una cuenta?. Inicia sesión</ButtonText>
@@ -178,7 +178,7 @@ export default function SignUpScreen() {
           <Button onPress={onPressVerify}>
             <ButtonText>Verificar email</ButtonText>
           </Button>
-          <Button onPress={() => router.push("/sign-up")}>
+          <Button onPress={() => router.push("/signUp")}>
             <ButtonText>atras</ButtonText>
           </Button>
         </>

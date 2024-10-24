@@ -96,7 +96,7 @@ export default function SignInScreen() {
               alignSelf="flex-end"
               marginTop="-$1"
               onPress={() => {
-                router.push("/forgot-password");
+                router.push("/forgotPassword");
               }}
             >
               <ButtonText>¿Olvidaste tu contraseña?</ButtonText>
@@ -110,7 +110,7 @@ export default function SignInScreen() {
               variant="link"
               size="sm"
               onPress={() => {
-                router.push("/sign-up");
+                router.push("/signUp");
               }}
             >
               <ButtonText>¿No tienes una cuenta? Registrate</ButtonText>
