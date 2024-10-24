@@ -31,11 +31,11 @@ export default function AuthRoutesLayout() {
       // }}
       >
         <Stack.Screen
-          name="sign-in"
+          name="signIn"
           options={{ title: "Sign In", headerShown: false }}
         />
         <Stack.Screen
-          name="sign-up"
+          name="signUp"
           // options={{
           //   title: "Regresar",
           // }}
@@ -45,7 +45,7 @@ export default function AuthRoutesLayout() {
           }}
         />
         <Stack.Screen
-          name="forgot-password"
+          name="forgotPassword"
           options={{
             headerShown: true,
             header: (props) => <HeaderComponent {...props} />,
