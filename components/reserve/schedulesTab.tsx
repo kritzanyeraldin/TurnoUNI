@@ -47,49 +47,6 @@ const breakfastSchedules = [
   },
 ];
 
-// const SchedulesTab = () => {
-//   return (
-//     <View>
-//       <Tabs
-//         defaultValue="Desayuno"
-//         orientation="horizontal"
-//         flexDirection="column"
-//         width="100%"
-//         // height=
-//         overflow="hidden"
-//         bg="#ffffff"
-//         mt="$3"
-//         // br="$0"
-//         // h={200}
-//       >
-//         <Tabs.List justifyContent="center" br={0}>
-//           <Tabs.Tab value="Desayuno">
-//             <SizableText>Desayuno</SizableText>
-//           </Tabs.Tab>
-//           <Tabs.Tab value="Almuerzo">
-//             <SizableText>Almuerzo</SizableText>
-//           </Tabs.Tab>
-//           <Tabs.Tab value="Cena">
-//             <SizableText>Cena</SizableText>
-//           </Tabs.Tab>
-//         </Tabs.List>
-
-//         <Separator />
-//         {/* <Tabs.Content value="Desayuno" height="100%">
-//           <ScrollView>
-//             <Comp data={breakfastSchedules}></Comp>
-//           </ScrollView>
-//         </Tabs.Content>
-//         <Tabs.Content value="Almuerzo">
-//           <Comp data={breakfastSchedules}></Comp>
-//         </Tabs.Content>
-//         <Tabs.Content value="Cena">
-//           <Comp data={breakfastSchedules}></Comp>
-//         </Tabs.Content> */}
-//       </Tabs>
-//     </View>
-//   );
-// };
 const BreakfastRoute = () => <ScheduleCard data={breakfastSchedules} />;
 const LunchRoute = () => <ScheduleCard data={breakfastSchedules} />;
 const DinnerRoute = () => <ScheduleCard data={breakfastSchedules} />;

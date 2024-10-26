@@ -1,6 +1,6 @@
 import * as SecureStore from "expo-secure-store";
 import { Stack } from "expo-router";
-import { GluestackUIProvider } from "@gluestack-ui/themed";
+import { GluestackUIProvider, SafeAreaView } from "@gluestack-ui/themed";
 import { config } from "./../config";
 import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import { Slot } from "expo-router";
@@ -45,7 +45,9 @@ export default function RootLayoutNav() {
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
       <ClerkLoaded>
         <GluestackUIProvider config={config}>
-          <Slot />
+          <SafeAreaView flex={1}>
+            <Slot />
+          </SafeAreaView>
         </GluestackUIProvider>
       </ClerkLoaded>
     </ClerkProvider>

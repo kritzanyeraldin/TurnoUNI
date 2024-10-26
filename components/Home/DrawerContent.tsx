@@ -78,11 +78,10 @@ const DrawerContent: DrawerNavigationConfig["drawerContent"] = (props) => {
             );
           })}
         </View>
-        <HStack alignSelf="flex-end" width="100%" alignItems="center" gap="$4">
-          {/* <Button></Button> */}
+        {/* <HStack alignSelf="flex-end" width="100%" alignItems="center" gap="$4">
 
           <Text>User</Text>
-        </HStack>
+        </HStack> */}
       </View>
     </DrawerContentScrollView>
   );

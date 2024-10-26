@@ -1,10 +1,15 @@
-import { Button, ButtonText } from "@gluestack-ui/themed";
+import {
+  Avatar,
+  AvatarFallbackText,
+  Button,
+  ButtonText,
+} from "@gluestack-ui/themed";
 
 const UserAvatar = () => {
   return (
-    <Button>
-      <ButtonText>Avatar</ButtonText>
-    </Button>
+    <Avatar bg="#000000" size="md" borderRadius="$full">
+      <AvatarFallbackText>Sandeep Srivastava</AvatarFallbackText>
+    </Avatar>
   );
 };
 

@@ -32,7 +32,7 @@ const ReserveScreen = () => {
     <TabView
       // overScrollMode={"never"}
       swipeEnabled={false}
-      style={{ backgroundColor: "white" }}
+      // style={{ backgroundColor: "red" }}
       navigationState={{ index, routes }}
       renderScene={renderScene}
       onIndexChange={setIndex}
@@ -41,20 +41,21 @@ const ReserveScreen = () => {
         <TabBar
           {...props}
           style={{
-            width: "60%",
+            width: "70%",
             alignSelf: "center",
-            backgroundColor: "white",
-            marginTop: 5,
+            backgroundColor: "trasnparent",
+            marginTop: 15,
+            elevation: 0,
           }}
           renderLabel={(props) => (
-            <Text color="black" size="xs">
+            <Text color="black" size="sm">
               {props.route.title}
             </Text>
           )}
           renderIndicator={(props) => (
             <TabBarIndicator
               {...props}
-              style={{ backgroundColor: "black", height: "8%" }}
+              style={{ backgroundColor: "#650C00", height: "8%" }}
             />
           )}
           // renderIcon={}

@@ -16,7 +16,7 @@ const MenuTable = () => {
   const openModal = () => setModalVisible(true);
   const closeModal = () => setModalVisible(false);
   return (
-    <>
+    <View flex={1}>
       <ScrollView>
         <VStack margin="$3" bg="white">
           <HStack height={50} bg="#f3f3f3" width="100%" m="$1">
@@ -86,7 +86,7 @@ const MenuTable = () => {
         </VStack>
       </ScrollView>
       <ModalReserve open={modalVisible} close={closeModal} />
-    </>
+    </View>
   );
 };
 

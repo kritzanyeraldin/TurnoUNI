@@ -30,14 +30,14 @@ const Carousel = ({ data }: CarouselProps) => {
   const carWidth = width - 2 * SPANCING;
 
   return (
-    <View bg="white" w="100%">
+    <View w="100%" bg="red">
       <FlatList
         data={data}
         horizontal
         showsHorizontalScrollIndicator={false}
         pagingEnabled
         contentContainerStyle={{
-          backgroundColor: "#d0d0d0",
+          backgroundColor: "#F5F5F5",
           gap: 16,
           paddingRight: carWidth / 2,
         }}
@@ -47,13 +47,18 @@ const Carousel = ({ data }: CarouselProps) => {
           setCurrentMenuItemId(viewableItems[0].key);
         }}
         renderItem={({ item, index }) => (
-          <Card key={item.id} w={carWidth - 60} h={200}>
-            <Text>{item.title}</Text>
-            <Text>Disfruta de un rico {item.title}</Text>
+          <Card
+            backgroundColor="$primary500"
+            key={item.id}
+            w={carWidth - 60}
+            h={200}
+          >
+            <Text color="$textDark100">{item.title}</Text>
+            <Text color="$textDark100">Disfruta de un rico {item.title}</Text>
 
             <Button
-              borderColor="#d0d0d0"
-              variant="outline"
+              bg="$secondary950"
+              variant="solid"
               mt="$5"
               width="90%"
               onPress={item.action.onPress}

@@ -36,7 +36,7 @@ const lateMenuData = [
 export default function ReserveTab() {
   const router = useRouter();
   return (
-    <View bg="white" height="100%" justifyContent="space-around">
+    <View height="100%" justifyContent="space-evenly">
       <Carousel
         data={menuData.map((item) => ({
           ...item,

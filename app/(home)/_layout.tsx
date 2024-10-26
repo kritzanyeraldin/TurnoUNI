@@ -17,7 +17,7 @@ export default function HomeLayout() {
       screenOptions={
         {
           // headerRight: UserAvatar,
-          // drawerContentStyle: { height: "100%" },
+          // drawerContentStyle: { backgroundColor: "red" },
         }
       }
     >
