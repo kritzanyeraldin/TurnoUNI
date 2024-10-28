@@ -1,7 +1,9 @@
 import {
+  Box,
   Button,
   ButtonText,
   Card,
+  Heading,
   Text,
   View,
   VStack,
@@ -30,7 +32,7 @@ const Carousel = ({ data }: CarouselProps) => {
   const carWidth = width - 2 * SPANCING;
 
   return (
-    <View w="100%" bg="red">
+    <View w="100%">
       <FlatList
         data={data}
         horizontal
@@ -52,18 +54,22 @@ const Carousel = ({ data }: CarouselProps) => {
             key={item.id}
             w={carWidth - 60}
             h={200}
+            borderRadius="$lg"
+            alignItems="center"
+            justifyContent="center"
           >
-            <Text color="$textDark100">{item.title}</Text>
-            <Text color="$textDark100">Disfruta de un rico {item.title}</Text>
-
+            <Box height="50%" w="$full" maxWidth="90%">
+              <Heading mb="$2">{item.title}</Heading>
+              <Text>Disfruta de un rico {item.title}</Text>
+            </Box>
             <Button
-              bg="$secondary950"
+              bg="$primary900"
               variant="solid"
-              mt="$5"
+              mt="$7"
               width="90%"
               onPress={item.action.onPress}
             >
-              <ButtonText>{item.action.label}</ButtonText>
+              <ButtonText color="$textLight800">{item.action.label}</ButtonText>
             </Button>
           </Card>
         )}

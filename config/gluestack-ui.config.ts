@@ -2,6 +2,7 @@ import { AnimationResolver } from '@gluestack-style/animation-resolver';
 import { MotionAnimationDriver } from '@gluestack-style/legend-motion-animation-driver';
 import { createConfig, createComponents } from '@gluestack-style/react';
 import * as componentsTheme from './theme';
+import { Badge } from '@gluestack-ui/themed';
 
 export  const gluestackUIConfig = createConfig({
   aliases: {
@@ -335,25 +336,25 @@ export  const gluestackUIConfig = createConfig({
       secondary800: '#7F7371',
       secondary900: '#807978',
       secondary950: '#808080',
-      textLight0: '#FCFCFC',
-      textLight50: '#F5F5F5',
-      textLight100: '#E5E5E5',
-      textLight200: '#DBDBDB',
-      textLight300: '#D4D4D4',
-      textLight400: '#A3A3A3',
-      textLight500: '#8C8C8C',
-      textLight600: '#737373',
-      textLight700: '#525252',
-      textLight800: '#404040',
-      textLight900: '#262626',
-      textLight950: '#171717',
+      textLight0: '#808080',
+      textLight50: '#90908f',
+      textLight100: '#9fa09f',
+      textLight200: '#afafae',
+      textLight300: '#bebfbd',
+      textLight400: '#cecfcc',
+      textLight500: '#dddfdc',
+      textLight600: '#edeeeb',
+      textLight700: '#fcfefa',  //principal
+      textLight800: '#fefffd',
+      textLight900: '#fcfefa',  //heading
+      textLight950: '#000000',
       textDark0: '#FCFCFC',
       textDark50: '#F5F5F5',
       textDark100: '#E5E5E5',
       textDark200: '#DBDBDB',
       textDark300: '#D4D4D4',
       textDark400: '#A3A3A3',
-      textDark500: '#8C8C8C',
+      textDark500: '#d46969',
       textDark600: '#737373',
       textDark700: '#525252',
       textDark800: '#404040',
@@ -537,9 +538,10 @@ export  const gluestackUIConfig = createConfig({
       extraBlack: '950',
     },
     fonts: {
-      heading: undefined,
-      body: undefined,
-      mono: undefined,
+      heading: 'Niramit',
+      body: 'Abeezee',
+      mono: 'Abeezee', 
+      // bold: 'Abeezee',
     },
     fontSizes: {
       '2xs': 10,
@@ -574,7 +576,10 @@ export  const gluestackUIConfig = createConfig({
       95: 0.95,
       100: 1,
     },
+   
   } as const,
+
+
   globalStyle: {
     variants: {
       hardShadow: {
@@ -695,6 +700,7 @@ export  const gluestackUIConfig = createConfig({
     },
   },
   plugins: [new AnimationResolver(MotionAnimationDriver)],
+
 });
 
 type Config = typeof gluestackUIConfig; // Assuming `config` is defined elsewhere

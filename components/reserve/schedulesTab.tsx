@@ -66,9 +66,9 @@ type Route = {
 const SchedulesTab = () => {
   const [index, setIndex] = useState(0);
   const [routes] = useState<Route[]>([
-    // { key: "first", title: "Desayuno", icon: "coffee" },
-    // { key: "second", title: "Almuerzo", icon: "forkKnife" },
-    // { key: "third", title: "Cena", icon: "bowlSteam" },
+    { key: "first", title: "Desayuno" },
+    { key: "second", title: "Almuerzo" },
+    { key: "third", title: "Cena" },
   ]);
   return (
     <TabView
@@ -81,16 +81,16 @@ const SchedulesTab = () => {
       renderTabBar={(props) => (
         <TabBar
           {...props}
-          pressColor="red"
+          pressColor="#7B0F00"
           style={{
-            backgroundColor: "white",
+            backgroundColor: "#313131ff",
           }}
           // renderIcon={(props) => (
           //   <Icon type={props.route.icon} weight="regular" />
           // )}
           renderTabBarItem={(props) => <TabBarItem {...props} />}
           renderLabel={(props) => (
-            <Text size="xs" color="black">
+            <Text size="xs" color="$textLight900">
               {props.route.title}
             </Text>
           )}
@@ -99,7 +99,7 @@ const SchedulesTab = () => {
               {...props}
               style={{
                 height: "100%",
-                backgroundColor: "#b7b7b7",
+                backgroundColor: "#740E00",
               }}
             />
           )}

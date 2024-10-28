@@ -1,7 +1,14 @@
-import { Card, HStack, ScrollView, Text, VStack } from "@gluestack-ui/themed";
-import React from "react";
+import {
+  Badge,
+  BadgeText,
+  Card,
+  Heading,
+  HStack,
+  ScrollView,
+  Text,
+  VStack,
+} from "@gluestack-ui/themed";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
-
 export type TmenuItem = {
   id: string;
   schedule: string;
@@ -16,7 +23,7 @@ type ScheduleCardProps = {
 
 const ScheduleCard = ({ data }: ScheduleCardProps) => {
   return (
-    <ScrollView bg="#ffffff" height="100%">
+    <ScrollView height="100%">
       {data.map((item) => (
         <Card
           key={item.id}
@@ -25,54 +32,49 @@ const ScheduleCard = ({ data }: ScheduleCardProps) => {
           // height="$13"
           alignSelf="center"
           mt="$4"
-          bg={item.progress === 100 ? "#969696e8" : "#e7e7e7ff"}
+          bg={item.progress === 100 ? "$primary50" : "$primary500"}
         >
           <HStack justifyContent="center" flexGrow={1}>
             <VStack justifyContent="space-around" flexGrow={1} marginLeft="$4">
-              <HStack gap="$1.5">
-                {/* <Calendar size="$1" /> */}
-                <Text size="xs">{item.date}</Text>
-              </HStack>
-              <Text size="sm" style={{ fontWeight: "bold" }}>
+              <Text size="sm">{item.date}</Text>
+              <Heading size="md" style={{ fontWeight: "bold" }}>
                 {item.schedule}
-              </Text>
+              </Heading>
               <HStack gap="$2">
-                <Text
-                  bg="#d2d2d2"
-                  textAlign="center"
-                  width="$6"
-                  height="$2.5"
-                  // borderWidth="$0.5"
-                  style={{ textAlignVertical: "center" }}
+                <Badge
+                  size="md"
+                  variant="outline"
+                  borderRadius="$full"
+                  action="info"
+                  bg={item.progress !== 100 ? "$primary900" : "$primary50"}
+                  borderColor="$textLight900"
                 >
-                  {item.id}
-                </Text>
-                <Text
-                  // borderColor="black"
-                  // borderWidth="$1"
-                  bg="#d2d2d2"
-                  textAlign="center"
-                  width="$6"
-                  height="$2.5"
-                  // borderWidth="$0.5"
-                  style={{ textAlignVertical: "center" }}
+                  <BadgeText color="$textLight900">{item.id}</BadgeText>
+                </Badge>
+                <Badge
+                  size="md"
+                  variant="outline"
+                  borderRadius="$full"
+                  action="info"
+                  bg={item.progress !== 100 ? "$primary900" : "$primary50"}
+                  borderColor="$textLight900"
                 >
-                  {item.area}
-                </Text>
+                  <BadgeText color="$textLight900">{item.area}</BadgeText>
+                </Badge>
               </HStack>
             </VStack>
-            <VStack flexGrow={1} alignItems="center">
+            <VStack flexGrow={1} alignItems="center" gap="$1">
               <AnimatedCircularProgress
                 style={{
                   marginTop: 9,
                 }}
-                size={110}
+                size={100}
                 width={15}
                 fill={item.progress}
-                backgroundColor="#888787"
-                tintColor="#1b1818aa"
+                backgroundColor="#9A473C"
+                tintColor={item.progress === 100 ? "#B98078" : "#d5beb5"}
               ></AnimatedCircularProgress>
-              <Text>{item.progress} </Text>
+              <Text>{item.progress}% </Text>
             </VStack>
           </HStack>
         </Card>

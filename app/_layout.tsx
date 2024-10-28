@@ -4,6 +4,11 @@ import { GluestackUIProvider, SafeAreaView } from "@gluestack-ui/themed";
 import { config } from "./../config";
 import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import { Slot } from "expo-router";
+import { useFonts } from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
+
+SplashScreen.preventAutoHideAsync();
 
 const tokenCache = {
   async getToken(key: string) {
@@ -40,6 +45,21 @@ if (!publishableKey) {
 
 export default function RootLayoutNav() {
   // const colorScheme = useColorScheme();
+
+  const [fontsLoaded, fontLoadedError] = useFonts({
+    Abeezee: require("../assets/fonts/ABeezee-Regular.ttf"),
+    Niramit: require("../assets/fonts/Niramit-Bold.ttf"),
+  });
+
+  useEffect(() => {
+    if (fontsLoaded || fontLoadedError) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontLoadedError]);
+
+  if (!fontsLoaded && !fontLoadedError) {
+    return null;
+  }
 
   return (
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
