@@ -13,6 +13,7 @@ import {
 import { useRouter } from "expo-router";
 import { Modal } from "react-native";
 // import image from "@/assets/images";
+import Logo from "@/assets/images/order_confirmed.svg";
 
 type Props = {
   open: boolean;
@@ -29,8 +30,9 @@ const ModalConfirmReserve = ({ open, close }: Props) => {
       onRequestClose={close}
     >
       <View
-        w="100%"
-        h="100%"
+        flex={1}
+        maxWidth="100%"
+        maxHeight="100%"
         justifyContent="center"
         alignItems="center"
         bg="#000000a8"
@@ -39,14 +41,16 @@ const ModalConfirmReserve = ({ open, close }: Props) => {
           bg="$primary700"
           p="$5"
           gap="$3"
-          width="100%"
-          height="100%"
-          maxWidth="80%"
-          maxHeight="30%"
+          flex={1}
+          width="60%"
+          // height="100%"
+          maxWidth="100%"
+          maxHeight="50%"
           justifyContent="center"
           alignItems="center"
           borderRadius="$xl"
         >
+          <Logo width={120} height={120} />
           <Heading>¡Reserva realizada!</Heading>
 
           <Text>Gracias por reserva</Text>
@@ -55,6 +59,7 @@ const ModalConfirmReserve = ({ open, close }: Props) => {
             bg="$primary900"
             variant="solid"
             width="90%"
+            mt="$5"
             onPress={() => router.push("/(home)")}
           >
             <ButtonText color="$textLight500">Regresar</ButtonText>

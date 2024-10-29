@@ -1,7 +1,9 @@
+import ModalConfirmCancelReserve from "@/components/Myreservations/ModalConfirmCancelReserve";
 import {
   Button,
   ButtonText,
   Card,
+  Heading,
   HStack,
   ScrollView,
   Switch,
@@ -9,38 +11,45 @@ import {
   View,
   VStack,
 } from "@gluestack-ui/themed";
+import { useState } from "react";
 
 const MyReservationsFill = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const openModal = () => setModalVisible(true);
+  const closeModal = () => setModalVisible(false);
   return (
-    <View bg="#f6f6f6" width="100%" height="100%">
-      <ScrollView>
-        <Card
-          width="100%"
-          maxWidth="80%"
-          // height="100%"
-          flex={1}
-          alignSelf="center"
-          mt="$4"
-          p="$3.5"
-          bg="#cfcfcfe8"
-          // justifyContent="center
-          gap="$2.5"
-        >
-          <HStack justifyContent="space-between">
-            <Text>Tipo</Text>
-            <Text>Area</Text>
-          </HStack>
-          <Text>horario</Text>
-          <VStack justifyContent="space-between">
-            <HStack alignItems="center" gap="$2">
-              <Switch size="sm" />
-            </HStack>
-            <Button bg="#a7a7a7" size="xs" width="$10">
-              <ButtonText color="white">Cancelar</ButtonText>
-            </Button>
-          </VStack>
-        </Card>
-      </ScrollView>
+    <View flex={1}>
+      {/* <ScrollView>/ */}
+      <Card
+        width="$80"
+        height="$40"
+        mt="$4"
+        p="$3.5"
+        bg="$primary500"
+        justifyContent="center"
+        alignSelf="center"
+        gap="$2.5"
+      >
+        <HStack justifyContent="flex-start">
+          {/* <Text>Tipo</Text> */}
+          <Text>Area 1</Text>
+        </HStack>
+        <Heading size="md">2:00 pm - 3:00 pm</Heading>
+
+        <HStack justifyContent="space-between" alignContent="center" mt="$2">
+          <Switch size="sm" />
+          <Button
+            size="md"
+            bg="$primary900"
+            variant="solid"
+            onPress={openModal}
+          >
+            <ButtonText color="$textLight900">Cancelar</ButtonText>
+          </Button>
+        </HStack>
+      </Card>
+      {/* </ScrollView> */}
+      <ModalConfirmCancelReserve open={modalVisible} close={closeModal} />
     </View>
   );
 };

@@ -1,12 +1,13 @@
 import { Redirect, Slot, Stack } from "expo-router";
 import { useAuth } from "@clerk/clerk-expo";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 import {
   Button,
   ButtonIcon,
   ButtonText,
   Heading,
   HStack,
+  SafeAreaView,
   View,
   VStack,
 } from "@gluestack-ui/themed";
@@ -21,7 +22,7 @@ export default function AuthRoutesLayout() {
   }
 
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView flex={1} bg="$primary500">
       <Stack
       // screenOptions={{
 

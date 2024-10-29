@@ -1,7 +1,8 @@
 import { UserAvatar } from "@/components/Home";
+import { styled } from "@gluestack-style/react";
 import { DrawerItem, DrawerNavigationOptions } from "@react-navigation/drawer";
 import { ScreenProps } from "expo-router/build/useScreens";
-
+//a
 type DrawerItemProps = React.ComponentProps<typeof DrawerItem>;
 
 type DrawerSectionItem = {
@@ -31,6 +32,10 @@ const drawerSections: DrawerSection[] = [
           options: {
             drawerLabel: "Menú",
             title: "Menú",
+            headerRight: UserAvatar,
+            headerRightContainerStyle: { paddingRight:10 , marginBottom:5 },
+            headerStyle: { backgroundColor: "#7B0F00" },
+            headerTitleStyle: { color: "#e6e6e6" },
           },
         },
       },
@@ -46,8 +51,8 @@ const drawerSections: DrawerSection[] = [
             drawerLabel: "Reservar",
             title: "Reservar",
             headerRight: UserAvatar,
-            headerRightContainerStyle: { marginRight: 20, alignContent: "center" , marginBottom:5 },
-            headerStyle: { backgroundColor: "#7b0e00e9" },
+            headerRightContainerStyle: { paddingRight:10 , marginBottom:5 },
+            headerStyle: { backgroundColor: "#7B0F00" },
             headerTitleStyle: { color: "#e6e6e6" },
           },
         },
@@ -64,6 +69,9 @@ const drawerSections: DrawerSection[] = [
             drawerLabel: "Mis Reservaciones",
             title: "Mis Reservaciones",
             headerRight: UserAvatar,
+            headerRightContainerStyle: { paddingRight:10 , marginBottom:5 },
+            headerStyle: { backgroundColor: "#7B0F00" },
+            headerTitleStyle: { color: "#e6e6e6" },
           },
         },
       },
@@ -84,6 +92,9 @@ const drawerSections: DrawerSection[] = [
             drawerLabel: "Ajustes",
             title: "Ajustes",
             headerRight: UserAvatar,
+            headerRightContainerStyle: { paddingRight:10 , marginBottom:5 },
+            headerStyle: { backgroundColor: "#7B0F00" },
+            headerTitleStyle: { color: "#e6e6e6" },
           },
         },
       },

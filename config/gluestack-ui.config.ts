@@ -302,7 +302,7 @@ export  const gluestackUIConfig = createConfig({
       info700: '#0369a1',
       info800: '#075985',
       info900: '#0c4a6e',
-      light50: '#fafaf9',
+      light50: '#f9faf9',
       light100: '#f5f5f4',
       light200: '#e7e5e4',
       light300: '#d6d3d1',

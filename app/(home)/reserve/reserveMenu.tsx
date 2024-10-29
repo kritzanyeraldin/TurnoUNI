@@ -4,11 +4,15 @@ import { HStack, Input, InputField, View } from "@gluestack-ui/themed";
 
 const ReserveMenuScreen = () => {
   return (
-    <View bg="#f3f3f3" flex={1}>
-      <HStack gap="$2.5" bg="$gray5" p="$2.5" m="$3">
+    <View flex={1}>
+      <HStack gap="$2.5" bg="$gray5" marginVertical="$5" marginHorizontal="$3">
         {/* <View alignSelf="center"><Icon type="search" size={16} /></View> */}
-        <Input flex={1}>
-          <InputField placeholder="Buscar" />
+        <Input flex={1} variant="outline" borderColor="$primary950" bg="white">
+          <InputField
+            placeholder="Buscar"
+            placeholderTextColor="$textLight0"
+            color="$textLight950"
+          />
         </Input>
       </HStack>
       <MenuTable />

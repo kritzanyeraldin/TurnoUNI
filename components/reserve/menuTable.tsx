@@ -10,6 +10,7 @@ import {
   VStack,
 } from "@gluestack-ui/themed";
 import { ButtonText } from "@gluestack-ui/themed";
+import { Box } from "@gluestack-ui/themed";
 
 const MenuTable = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -17,66 +18,42 @@ const MenuTable = () => {
   const closeModal = () => setModalVisible(false);
   return (
     <ScrollView flex={1}>
-      <VStack margin="$3" bg="white">
-        <HStack height={50} bg="#f3f3f3" width="100%" m="$1">
-          <View
-            flex={2}
-            // bg="yellow"
-            justifyContent="center"
-            alignItems="center"
-          >
+      <VStack margin="$3" bg="$primary500">
+        <HStack
+          height={50}
+          flex={1}
+          maxWidth="100%"
+          margin="$1"
+          bg="$primary800"
+        >
+          <Box flex={3} justifyContent="center" alignItems="center">
             <Text>Horarios</Text>
-          </View>
-          <View
-            flex={1}
-            // bg="#a3a3a3"
-            justifyContent="center"
-            alignItems="center"
-          >
+          </Box>
+          <Box flex={1} justifyContent="center" alignItems="center">
             <Text>Area</Text>
-          </View>
-          <View
-            flex={2}
-            // bg="#efefd6"
-            justifyContent="center"
-            alignItems="center"
-          >
+          </Box>
+          <Box flex={2} justifyContent="center" alignItems="center">
             <Text>Reservar</Text>
-          </View>
+          </Box>
         </HStack>
         <View bg="#f3f3f3" gap="$1" flex={1}>
           {menuReserveSchedules.map((item) => (
-            <HStack
-              height={60}
-              bg="white"
-              // alignItems="center"
-              width="100%"
-              key={item.id}
-            >
-              <View
-                flex={2}
-                // bg="yellow"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Text>{item.title}</Text>
+            <HStack height={60} bg="$primary500" width="100%" key={item.id}>
+              <View flex={3} justifyContent="center" alignItems="center">
+                <Text size="md">{item.title}</Text>
               </View>
-              <View
-                flex={1}
-                // bg="#585846"
-                justifyContent="center"
-                alignItems="center"
-              >
+              <View flex={1} justifyContent="center" alignItems="center">
                 <Text>{item.area}</Text>
               </View>
-              <View
-                flex={2}
-                // bg="#efefd6"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Button onPress={openModal} bg="#dadada" size="sm">
-                  <ButtonText>Reservar</ButtonText>
+              <View flex={2} justifyContent="center" alignItems="center">
+                <Button
+                  onPress={openModal}
+                  bg="$primary900"
+                  variant="outline"
+                  // borderColor="$primary0"
+                  size="sm"
+                >
+                  <ButtonText color="$textLight900">Reservar</ButtonText>
                 </Button>
               </View>
             </HStack>
