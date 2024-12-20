@@ -92,12 +92,12 @@ export default function SignUpScreen() {
     >
       {!pendingVerification && (
         // <View h="100%" maxWidth="100%" bg="red">
-        <Center flex={1}>
+        <Center flex={1} bg="$primary500">
           <Heading size="2xl" marginBottom="$16" marginTop="-$20">
             Crea una cuenta
           </Heading>
           <Box w="$72" gap="$2">
-            <Button size="md">
+            {/* <Button size="md">
               <ButtonText>Google</ButtonText>
             </Button>
             <HStack
@@ -109,19 +109,33 @@ export default function SignUpScreen() {
               <Divider my="$0.5" bgColor="$secondary900" />
               <Text>o</Text>
               <Divider my="$0.5" bgColor="$secondary900" />
-            </HStack>
-            <Input variant="outline" size="md">
+            </HStack> */}
+            <Input
+              variant="outline"
+              size="md"
+              borderColor="$primary950"
+              bg="$primary0"
+            >
               <InputField
                 value={emailAddress}
                 onChangeText={(emailAddress) => setEmailAddress(emailAddress)}
                 placeholder="Ingresa tu cuenta"
+                placeholderTextColor="$textLight0"
+                color="$textLight950"
               />
             </Input>
-            <Input variant="outline" size="md">
+            <Input
+              variant="outline"
+              size="md"
+              borderColor="$primary950"
+              bg="$primary0"
+            >
               <InputField
                 value={username}
                 onChangeText={(userName) => setUserName(userName)}
                 placeholder="Ingresa tu nombre"
+                placeholderTextColor="$textLight0"
+                color="$textLight950"
               />
             </Input>
             {/* </Box> */}
@@ -133,24 +147,34 @@ export default function SignUpScreen() {
               isReadOnly={false}
               isRequired={true}
             >
-              <Input size="md">
+              <Input
+                variant="outline"
+                size="md"
+                borderColor="$primary950"
+                bg="$primary0"
+              >
                 <InputField
                   value={password}
                   onChangeText={(password) => setPassword(password)}
                   type="password"
                   defaultValue=""
                   placeholder="Ingresa tu contraseña"
+                  placeholderTextColor="$textLight0"
+                  color="$textLight950"
                 />
               </Input>
             </FormControl>
           </Box>
           <Box marginTop="$10">
             <Button
+              bg="$primary900"
+              variant="outline"
+              borderColor="$primary0"
               onPress={() => {
                 onSignUpPress();
               }}
             >
-              <ButtonText>Registrarse</ButtonText>
+              <ButtonText color="$textLight900">Registrarse</ButtonText>
             </Button>
             <Button
               variant="link"

@@ -59,10 +59,15 @@ export default function AuthRoutesLayout() {
 
 const HeaderComponent = ({ ...props }: any) => {
   return (
-    <View>
-      <HStack>
-        <Button onPress={() => props.navigation.goBack()}>
-          <ButtonText>Regresar</ButtonText>
+    <View height="$20">
+      <HStack marginTop="$11" marginLeft="$3">
+        <Button
+          // bg="$primary200"
+          variant="solid"
+          // borderColor="$primary0"
+          onPress={() => props.navigation.goBack()}
+        >
+          <ButtonText color="$textLight900">Regresar</ButtonText>
         </Button>
       </HStack>
     </View>
